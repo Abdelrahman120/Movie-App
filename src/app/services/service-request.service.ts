@@ -11,7 +11,7 @@ export class ServiceRequestService {
   getAllMovies() {
     return this.Http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=916d678d619ceb4866528692dac085ea');
   }
-  getMovieDetails(movieId: string):Observable<any> {
+  getMovieDetails(movieId: string): Observable<any> {
     return this.Http.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=916d678d619ceb4866528692dac085ea`);
   }
 }

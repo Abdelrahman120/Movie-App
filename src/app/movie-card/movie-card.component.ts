@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ServiceRequestService } from '../services/service-request.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,5 +10,9 @@ import { Component } from '@angular/core';
   styleUrl: './movie-card.component.css'
 })
 export class MovieCardComponent {
-
+@Input() movie: any;
+constructor(private ServiceRequestService:ServiceRequestService , private router:Router){ }
+goToDetails(id:string){
+  this.router.navigate(['/moviedetails',id]);
+}
 }
