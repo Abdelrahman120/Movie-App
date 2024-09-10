@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ServiceRequestService } from '../services/service-request.service';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-card-details',
@@ -9,11 +10,19 @@ import { ServiceRequestService } from '../services/service-request.service';
   styleUrl: './card-details.component.css'
 })
 export class CardDetailsComponent {
-
-  constructor(private ServiceRequestService:ServiceRequestService){}
-  @Input() id: string='';
+  @Input() id: any='';
   movieDetails: any;
-  ngOnInint(){
-    this.ServiceRequestService.getMovieDetails(this.id).subscribe(res=>this.movieDetails = res);
+  constructor(private ServiceRequestService:ServiceRequestService , private route:ActivatedRoute){}
+
+
+  ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id') || '';
+    if (this.id) {
+      this.ServiceRequestService.getMovieDetails(this.id).subscribe((res: any) => {
+        this.movieDetails = res;
+      }, error => {
+        console.error("Error fetching movie details", error);
+      });
+    }
   }
 }

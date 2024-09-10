@@ -1,1 +1,7 @@
-<p>movie-card works!</p>
+<div class="card">
+    <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Moviessss Poster">
+    <button (click)="goToDetails(movie.id)" type="button">ddddddddddd</button>
+      <div class="card-body">
+        <h5 class="card-title">{{movie.id}}</h5>
+      </div>
+    </div>  

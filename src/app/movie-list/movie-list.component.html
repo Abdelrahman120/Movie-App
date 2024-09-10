@@ -1,12 +1,8 @@
 <div class="container">
-@for(Movie of movie;track $index){
-  <div class="card">
-  <img [src]="'https://image.tmdb.org/t/p/w500/' + Movie.poster_path" alt="Movie Poster">
-  <button (click)="goToDetails(Movie.id)" type="button">ddddddddddd</button>
-    <div class="card-body">
-      <h5 class="card-title">{{Movie.id}}</h5>
-    </div>
-  </div>
+  @for(Movie of movie;track $index){
+
+  <app-movie-card [movie]="Movie" ></app-movie-card>
 }
+
 </div>
 
