@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ServiceRequestService } from '../services/service-request.service';
 
 @Component({
   selector: 'app-card-details',
@@ -9,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class CardDetailsComponent {
 
+  constructor(private ServiceRequestService:ServiceRequestService){}
+  @Input() id: string='';
+  movieDetails: any;
+  ngOnInint(){
+    this.ServiceRequestService.getMovieDetails(this.id).subscribe(res=>this.movieDetails = res);
+  }
 }
