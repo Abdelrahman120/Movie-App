@@ -1,1 +1,16 @@
-<p>search-bar works!</p>
+<form action="" class="d-flex">
+  <input
+    type="text"
+    name="search_input"
+    class="form-control rounded-3 p-3 me-4 border-0"
+    placeholder="Search and explore..."
+    ngModel
+  />
+  <input
+    type="submit"
+    value="Search"
+    class="btn fs-5 roboto-regular search px-4"
+    style="background-color: #ffe353"
+    (click)="search()"
+  />
+</form>

@@ -7,11 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class ServiceRequestService {
 
-  constructor(private Http:HttpClient) { }
+  constructor(private Http: HttpClient) { }
+
   getAllMovies() {
     return this.Http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=916d678d619ceb4866528692dac085ea');
   }
+
   getMovieDetails(movieId: string): Observable<any> {
     return this.Http.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=916d678d619ceb4866528692dac085ea`);
+  }
+
+  filteredMovies(page_number: string): Observable<any> {
+    return this.Http.get(`https://api.themoviedb.org/3/movie/popular?api_key=916d678d619ceb4866528692dac085ea&page=${page_number}`);
   }
 }

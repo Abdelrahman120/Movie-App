@@ -1,7 +1,40 @@
-<div class="card">
-    <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Moviessss Poster">
-    <button (click)="goToDetails(movie.id)" type="button">ddddddddddd</button>
-      <div class="card-body">
-        <h5 class="card-title">{{movie.id}}</h5>
-      </div>
-    </div>  
+<div class="card border-0 position-relative">
+  <a (click)="goToDetails(movie.id)">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+      class="card-img-top rounded-3"
+      alt="{{ movie.title }} poster"
+    />
+  </a>
+  <div
+    class="position-absolute bg-dark border-info border border-2 text-light d-flex align-items-center justify-content-center"
+    style="
+      top: 76%;
+      left: 6%;
+      border-radius: 50%;
+      width: 2.9rem;
+      height: 2.9rem;
+    "
+  >
+    <span class="roboto-light" style="font-size: 14px">{{
+      movie.vote_average | number : "1.0-2"
+    }}</span>
+  </div>
+  <div class="card-body mt-2">
+    <p class="mb-0 roboto-bold">{{ movie.title }}</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="card-text text-muted">
+        {{ movie.release_date | date : "MMM d, y" }}
+      </span>
+      <input
+        type="checkbox"
+        class="addToFav"
+        name=""
+        id="heart{{ movie.id }}"
+      />
+      <label for="heart{{ movie.id }}" class=""
+        ><fa-icon [icon]="faHeart" class="fs-4 heart"></fa-icon
+      ></label>
+    </div>
+  </div>
+</div>

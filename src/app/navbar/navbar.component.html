@@ -1,36 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Product</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+<!DOCTYPE html>
+<nav
+  class="navbar navbar-expand-lg mb-3"
+  style="background-color: #ffe353; height: 3.5rem"
+>
+  <div
+    class="container-fluid d-flex justify-content-between align-content-center"
+  >
+    <a class="navbar-brand roboto-bold ms-4" href="#">Movie App</a>
+    <div
+      class="navbar-nav roboto-regular d-flex justify-content-between align-items-center"
+    >
+      <a class="nav-link me-2" aria-current="page" href="#">Home</a>
+
+      <a class="nav-link d-flex roboto-regular align-items-center me-3" href="#"
+        ><fa-icon [icon]="faHeart" class="fs-3"></fa-icon>
+        <span class="ms-1">watchlist</span></a
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              routerLink="/"
-              routerLinkActive="text-danger fw-bold"
-              [routerLinkActiveOptions]="{ exact: true }"
-              >Home</a
-            >
-          </li>
-          
-        </ul>
-        <ul class="navbar-nav">
-      
-     
-        </ul>
-      </div>
     </div>
-  </nav>
-  
+  </div>
+</nav>
