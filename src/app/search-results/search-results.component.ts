@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceRequestService } from '../services/service-request.service';
 
 @Component({
   selector: 'app-search-results',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './search-results.component.css'
 })
 export class SearchResultsComponent {
+
+  constructor(private ServiceRequestService: ServiceRequestService) { }
+
 
 }
