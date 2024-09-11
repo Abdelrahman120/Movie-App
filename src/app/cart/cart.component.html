@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <h2>Cart</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Remove</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (cartItems.length === 0) {
+            <h1 class="text-center fs-1">Cart is empty</h1>
+        }
+        @for(movie of cartItems ; track $index){
+            <tr >
+                <td class="d-flex align-items-center">
+                    <img style="width: 100px;"
+                    [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+                    class="card-img-top rounded-3 mb-2"
+                    alt="{{ movie.title }} poster"
+                  />                    <div>
+                    <strong>{{movie.title}}</strong><br>
+                    <small>{{movie.description}}</small><br>
+                    <small>movie Code: {{movie.id}}</small>
+                  </div>
+                </td>
+                <td>
+               {{movie.quantity}}
+                </td>
+                <td>
+                  <button class="btn btn-outline-danger" (click)="removeFromCart(movie)" >×</button>
+                </td>
+                
+                <td>
+                </td>
+              </tr>
+        }
+        
+      </tbody>
+    </table>
+ 
+  </div>
+  

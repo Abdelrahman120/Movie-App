@@ -8,6 +8,7 @@
 .heart:hover {
   color: #ffe253 !important;
   opacity: 0.5;
+  
 }
 
 .addToFav:checked + .heart {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-movie-card',
@@ -15,10 +16,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class MovieCardComponent {
   @Input() movie: any;
   faHeart = faHeart;
-  constructor(private ServiceRequestService: ServiceRequestService, private router: Router) { }
+  constructor(private cartService: CartService ,private ServiceRequestService: ServiceRequestService, private router: Router) { }
 
   goToDetails(id: string) {
     this.router.navigate(['/movie-details', id]);
+  }
+  addToCart(movie: any) {
+    this.cartService.addToCart(movie);
   }
 
   ngOnInit(): void {

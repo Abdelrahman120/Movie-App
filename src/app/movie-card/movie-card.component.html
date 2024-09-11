@@ -1,4 +1,4 @@
-<div class="card border-0 position-relative">
+<div class="card border-0 position-relative shadow-lg my-4">
   <a (click)="goToDetails(movie.id)">
     <img
       [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
@@ -38,8 +38,9 @@
         id="heart{{ movie.id }}"
       />
       <label for="heart{{ movie.id }}" class=""
-        ><fa-icon [icon]="faHeart" class="fs-4 heart"></fa-icon
+        ><fa-icon (click)="addToCart(movie)" [icon]="faHeart" class="fs-4 heart"></fa-icon
       ></label>
+      <!-- <button class="btn btn-outline-info" (click)="addToCart(movie)">add to watchlist</button> -->
     </div>
   </div>
 </div>
