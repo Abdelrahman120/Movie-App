@@ -2,14 +2,14 @@
   <a (click)="goToDetails(movie.id)">
     <img
       [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
-      class="card-img-top rounded-3"
+      class="card-img-top rounded-3 mb-2"
       alt="{{ movie.title }} poster"
     />
   </a>
   <div
     class="position-absolute bg-dark border-info border border-2 text-light d-flex align-items-center justify-content-center"
     style="
-      top: 76%;
+      top: 78.2%;
       left: 6%;
       border-radius: 50%;
       width: 2.9rem;
@@ -20,16 +20,21 @@
       movie.vote_average | number : "1.0-2"
     }}</span>
   </div>
-  <div class="card-body mt-2">
-    <p class="mb-0 roboto-bold">{{ movie.title }}</p>
-    <div class="d-flex justify-content-between align-items-center">
+  <div class="card-body" style="margin-top: 2.25rem">
+    <p class="mb-0 position-absolute roboto-bold" style="bottom: 2rem">
+      {{ movie.title }}
+    </p>
+    <div
+      class="d-flex justify-content-between align-items-center"
+      style="height: 8px"
+    >
       <span class="card-text text-muted">
         {{ movie.release_date | date : "MMM d, y" }}
       </span>
       <input
         type="checkbox"
         class="addToFav"
-        name=""
+        name="addToFavBtn"
         id="heart{{ movie.id }}"
       />
       <label for="heart{{ movie.id }}" class=""

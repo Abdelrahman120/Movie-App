@@ -16,6 +16,7 @@ export class MovieCardComponent {
   @Input() movie: any;
   faHeart = faHeart;
   constructor(private ServiceRequestService: ServiceRequestService, private router: Router) { }
+
   goToDetails(id: string) {
     this.router.navigate(['/movie-details', id]);
   }

@@ -4,7 +4,8 @@
     name="search_input"
     class="form-control rounded-3 p-3 me-4 border-0"
     placeholder="Search and explore..."
-    ngModel
+    [(ngModel)]="text"
+    value="{{ text }}"
   />
   <input
     type="submit"
