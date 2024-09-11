@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieInterface } from '../interfaces/movie-interface';
 import { RecommendationInterface } from '../interfaces/recommendation-interface';
+import { DetailsInterface } from '../interfaces/details-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +17,8 @@ export class ServiceRequestService {
     );
   }
 
-  getMovieDetails(movieId: string): Observable<{ results: MovieInterface[] }> {
-    return this.Http.get<{ results: MovieInterface[] }>(
+  getMovieDetails(movieId: string): Observable<{ results: DetailsInterface[] }> {
+    return this.Http.get<{ results: DetailsInterface[] }>(
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=916d678d619ceb4866528692dac085ea`
     );
   }
