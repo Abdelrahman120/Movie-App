@@ -18,10 +18,14 @@ export class SearchBarComponent {
   search() {
     this.router.navigate(['/search-result', this.text]);
   }
-  ngOnInit(): void {
-    this.ServiceRequestService.searchResult(this.text).subscribe((res) => {
-      this.text = res.title;
-      console.log(res);
-    })
-  }
+ngOnInit(): void {
+  this.ServiceRequestService.searchResult(this.text).subscribe((res) => {
+    if (res.results && res.results.length > 0) {
+      this.text = res.results[0].title;
+    } else {
+      console.log('No results found');
+    }
+    console.log(res);
+  })
+}
 }
