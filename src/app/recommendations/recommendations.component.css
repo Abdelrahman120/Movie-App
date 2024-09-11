@@ -10,3 +10,11 @@
     .img-fluid{
         width: 100%;
     }
+
+::ng-deep .slick-arrow {
+    background-color: #331818; 
+    border-radius: 50%;
+  }
+  
+  
+  
