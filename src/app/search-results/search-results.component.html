@@ -1,6 +1,23 @@
 <div class="container">
   <app-search-bar></app-search-bar>
 </div>
-<h1 class="text-center">
-  {{ title }}
-</h1>
+
+
+<div class="container-fluid px-5">
+
+  <h1 class="fs-1 my-5 fw-bold">Now Playing</h1>
+  <div class="row">
+    @for(Movie of searchResult;track $index){
+    <div class="col-2 my-1">
+      <app-movie-card [movie]="Movie"></app-movie-card>
+    </div>
+    }
+  </div>
+  <div class="d-flex justify-content-center my-4">
+    <div class="paginations">
+      <div>
+     
+      </div>
+    </div>
+  </div>
+</div>

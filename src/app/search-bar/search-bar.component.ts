@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServiceRequestService } from '../services/service-request.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -13,19 +13,19 @@ import { Router } from '@angular/router';
 
 export class SearchBarComponent {
   text = '';
-  constructor(private ServiceRequestService: ServiceRequestService, private router: Router) { }
+  title = {};
+  constructor(private ActivatedRoute: ActivatedRoute,private ServiceRequestService: ServiceRequestService, private router: Router) { }
 
   search() {
     this.router.navigate(['/search-result', this.text]);
   }
 ngOnInit(): void {
+  this.text = this.ActivatedRoute.snapshot.params['name'];
   this.ServiceRequestService.searchResult(this.text).subscribe((res) => {
-    if (res.results && res.results.length > 0) {
-      this.text = res.results[0].title;
-    } else {
-      console.log('No results found');
-    }
-    console.log(res);
-  })
+    // console.log(res);
+    this.title = res.results;
+    console.log(this.title);
+    
+  });
 }
 }
