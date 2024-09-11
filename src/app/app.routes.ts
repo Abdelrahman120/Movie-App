@@ -14,7 +14,7 @@ export const routes: Routes = [
     title: 'Movie Details',
   },
   {
-    path: 'search-results/:title',
+    path: 'search-result/:name',
     component: SearchResultsComponent,
     title: "Search result",
   }
