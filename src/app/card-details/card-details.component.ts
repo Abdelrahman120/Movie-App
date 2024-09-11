@@ -3,6 +3,7 @@ import { ServiceRequestService } from '../services/service-request.service';
 import { ActivatedRoute} from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
+  faHeart,
   faLink,
   faStar as faSolidStar,
 } from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +24,7 @@ export class CardDetailsComponent {
   faSolidStar = faSolidStar;
   faLink = faLink;
   faStar = faStar;
+  faHeart = faHeart;
   constructor(
     private ServiceRequestService: ServiceRequestService,
     private route: ActivatedRoute

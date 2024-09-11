@@ -1,35 +1,37 @@
 <div class="container my-5 ">
-  <div class="row g-0 border rounded  flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-    <div class="col-md-4 col-lg-3 ">
-      <img class="img-fluid" [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.poster_path" alt="Movie Poster">
+  <div class="row g-0    flex-md-row mb-4  ">
+    <div class="col-md-5 col-lg-4 ">
+      <img class="img-fluid rounded-4" [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.poster_path" alt="Movie Poster">
 
     </div>
-    <div class="col-md-8 col-lg-9">
+    <div class="col-md-7 col-lg-8">
       <div class="card-body ps-3 pt-3">
-        <h1 class="card-title">{{movieDetails.title}}</h1>
-        <span style="opacity: .5;">{{movieDetails.release_date}}</span>
-        <div class="card-text">
+        <div class="head d-flex justify-content-between">
+        <h1 class="card-title roboto-bold">{{movieDetails.title}}</h1>
+        <p class="card-text text-warning"><fa-icon [icon]="faHeart" class="fs-3 heart"></fa-icon></p>
+        </div><span style="opacity: .5;">{{movieDetails.release_date}}</span>
+        <div class="card-text my-3">
           <!-- <span class="text-dark m-1" *ngFor="let _ of getFlooredRating(movieDetails.vote_average);">
             <fa-icon [icon]="faSolidStar"></fa-icon>
           </span> <span class="ms-3">{{movieDetails.vote_count}}</span> -->
           <span>
             @for (star of [].constructor(5);track $index) {
             <fa-icon [icon]="faStar" [ngClass]="{
-                'fa-star text-warning': $index < movieDetails.vote_average,
+                'fa-star text-dark mx-1 fs-5': $index < movieDetails.vote_average,
                 'fa-star-o': $index >= movieDetails.vote_average
               }"></fa-icon>
             }
           </span>
         </div>
-        <p class="card-text">
+        <p class="card-text fs-6  mt-4" style="color: black;">
           {{movieDetails.overview}} </p>
         <div class="type d-flex gap-4 mb-2">
-          <span class="bg-warning px-2  rounded">Action</span>
-          <span class="bg-warning px-2  rounded">Crime</span>
-          <span class="bg-warning px-2  rounded">Thriller</span>
+          <span class="bg-warning px-3 py-1 rounded-4">Action</span>
+          <span class="bg-warning px-3 py-1  rounded-4">Crime</span>
+          <span class="bg-warning px-3 py-1  rounded-4">Thriller</span>
         </div>
-        <span class="card-text me-3"><b>Duration: </b>134 min </span>
-        <span class="card-text"><b>Language: </b>
+        <span class="card-text me-4"><b>Duration: </b>134 min </span>
+        <span class="card-text d-inline-block ms-3 my-2"><b>Language: </b>
           @if(movieDetails.original_language=='en'){
           english}
           @else{
@@ -37,12 +39,13 @@
           }} }
         </span>
         <br>
-        <img src="as.png" alt="" width="160" srcset="">
+        <img src="as.png" alt="" width="180" srcset="">
         <br>
 
-        <a class="text-dark text-decoration-none " href="#">website <fa-icon [icon]="faLink"></fa-icon>
+        <a class="text-dark text-decoration-none d-inline-block mt-4" href="#">website <fa-icon [icon]="faLink"></fa-icon>
         </a>
       </div>
     </div>
   </div>
+  <hr>
   <app-recommendations></app-recommendations>
