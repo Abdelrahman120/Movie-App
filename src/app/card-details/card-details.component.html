@@ -1,15 +1,51 @@
-<div class="container">
+<!-- <div class="container">
   <div class="card">
-    <!-- <h5 class="card-title">{{movieDetails}}ss</h5> -->
     <p>card-details works!</p>
-    <!-- <img [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.poster_path" alt="Movie ssssPoster"> -->
     <div class="card-body">
-      <!-- <h5 class="card-title">{{movieDetails}}</h5> -->
 
     </div>
   </div>
-</div>
-@for (item of movieRecommendations; track id) {
-  <!-- <p class="card-text">{{ item.title }}</p> -->
+</div> -->
+<!-- @for (item of movieRecommendations; track id) {
   <img [src]="'https://image.tmdb.org/t/p/w500/' + item.backdrop_path" alt="recommendation Poster">
-}
+} -->
+<div class="container mt-3 ">
+  <div class="row g-0 border rounded  flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col-md-4 col-lg-3 ">
+           <img class="img-fluid" [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.poster_path" alt="Movie ssssPoster"> 
+
+      </div>
+      <div class="col-md-8 col-lg-9">
+          <div class="card-body ps-3 pt-3">
+              <h1 class="card-title">{{movieDetails.title}}</h1>
+              <span style="opacity: .5;">{{movieDetails.release_date}}</span>
+              <div class="card-text">
+                  <span class="text-dark m-1" *ngFor="let _ of getFlooredRating(movieDetails.vote_average); ">
+                      <fa-icon [icon]="faSolidStar"></fa-icon>
+                  </span> <span class="ms-3">{{movieDetails.vote_count}}</span>
+              </div>
+              <p class="card-text">
+                  {{movieDetails.overview}}                    </p>
+              <div class="type d-flex gap-4 mb-2">
+                  <span class="bg-warning px-2  rounded">Action</span>
+                  <span class="bg-warning px-2  rounded">Crime</span>
+                  <span class="bg-warning px-2  rounded">Thriller</span>
+              </div>
+              <span class="card-text me-3"><b>Duration: </b>134 min </span>
+              <span class="card-text"><b>Language: </b> 
+                  @if(movieDetails.original_language=='en'){
+                  english}
+                  @else{
+{{                    movieDetails.original_language
+}}                    }
+              </span>
+              <br>
+              <img src="as.png" alt="" width="160" srcset="">
+              <br>
+
+              <a class="text-dark text-decoration-none " href="#">website <fa-icon [icon]="faLink"></fa-icon>
+              </a>
+          </div>
+      </div>
+  </div>
+          <app-recommendations></app-recommendations>

@@ -28,10 +28,14 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/slick-carousel/slick/slick.css",
+              "node_modules/slick-carousel/slick/slick-theme.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+                "node_modules/jquery/dist/jquery.min.js",
+               "node_modules/slick-carousel/slick/slick.min.js"
             ]
           },
           "configurations": {
@@ -88,12 +92,20 @@
               }
             ],
             "styles": [
+              "node_modules/slick-carousel/slick/slick.css",
+              "node_modules/slick-carousel/slick/slick-theme.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+                "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/slick-carousel/slick/slick.min.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "5a69aebc-df8d-4d96-b9ed-7fc594c3c93b"
   }
 }

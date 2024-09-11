@@ -1,0 +1,12 @@
+@media screen and (min-width: 768px) {
+    .img-fluid{
+    width: 100px;
+    }}
+
+    /* .container{
+        width: 70%;
+    } */
+
+    .img-fluid{
+        width: 100%;
+    }
