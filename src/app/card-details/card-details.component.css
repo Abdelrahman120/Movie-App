@@ -1,0 +1,15 @@
+.container{
+    width: 70%;
+}
+@media screen and (max-width: 768px) {
+    .img-fluid-custom {
+        width: 100%;
+    }
+    
+}
+@media screen and (min-width: 768px) {
+    .row{
+    height: 335px;
+    }
+    
+}

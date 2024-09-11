@@ -1,1 +1,44 @@
-<p>recommendations works!</p>
+<div class="container ">
+  <h2>Recommendations</h2>
+<div class="carousel">
+    <div *ngFor="let item of movieRecommendations" class="carousel-item">
+       
+      <div class="card border-0 position-relative">
+        <img   class="img-top" width="150" height="160" [src]="'https://image.tmdb.org/t/p/w500/' + item.backdrop_path" alt="recommendation Poster">
+        <div
+          class="position-absolute bg-dark border-info border border-2 text-light d-flex align-items-center justify-content-center"
+          style="
+            top: 76%;
+            left: 6%;
+            border-radius: 50%;
+            width: 2.9rem;
+            height: 2.9rem;
+          "
+        >
+          <span class="roboto-light" style="font-size: 14px">{{
+            item.vote_average | number : "1.0-2"
+          }}</span>
+        </div>
+        <div class="card-body mt-2">
+          <p class="mb-0 roboto-bold">{{ item.title }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="card-text text-muted">
+              {{ item.release_date | date : "MMM d, y" }}
+            </span>
+            <input
+              type="checkbox"
+              class="addToFav"
+              name=""
+              id="heart{{ item.id }}"
+            />
+            <label for="heart{{ item.id }}" class=""
+              ><fa-icon [icon]="faHeart" class="fs-4 heart"></fa-icon
+            ></label>
+          </div>
+        </div>
+      </div>
+
+    
+    </div>
+
+    </div>
