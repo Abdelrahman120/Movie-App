@@ -1,35 +1,53 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MovieInterface } from '../interfaces/movie-interface';
+import { RecommendationInterface } from '../interfaces/recommendation-interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServiceRequestService {
+  constructor(private Http: HttpClient) {}
 
-  constructor(private Http: HttpClient) { }
-
-  getAllMovies() {
-    return this.Http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=916d678d619ceb4866528692dac085ea');
+  getAllMovies(): Observable<{ results: MovieInterface[] }> {
+    return this.Http.get<{ results: MovieInterface[] }>(
+      'https://api.themoviedb.org/3/movie/now_playing?api_key=916d678d619ceb4866528692dac085ea'
+    );
   }
 
-  getMovieDetails(movieId: string): Observable<any> {
-    return this.Http.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=916d678d619ceb4866528692dac085ea`);
+  getMovieDetails(movieId: string): Observable<{ results: MovieInterface[] }> {
+    return this.Http.get<{ results: MovieInterface[] }>(
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=916d678d619ceb4866528692dac085ea`
+    );
   }
 
-  filteredMovies(page_number: string): Observable<any> {
-    return this.Http.get(`https://api.themoviedb.org/3/movie/popular?api_key=916d678d619ceb4866528692dac085ea&page=${page_number}`);
+  filteredMovies(
+    page_number: string
+  ): Observable<{ results: MovieInterface[] }> {
+    return this.Http.get<{ results: MovieInterface[] }>(
+      `https://api.themoviedb.org/3/movie/popular?api_key=916d678d619ceb4866528692dac085ea&page=${page_number}`
+    );
   }
 
-  searchResult(MovieName: string): Observable<any> {
-    return this.Http.get(`https://api.themoviedb.org/3/search/movie?api_key=916d678d619ceb4866528692dac085ea&query=${MovieName}`)
+  searchResult(MovieName: string): Observable<{ results: MovieInterface[] }> {
+    return this.Http.get<{ results: MovieInterface[] }>(
+      `https://api.themoviedb.org/3/search/movie?api_key=916d678d619ceb4866528692dac085ea&query=${MovieName}`
+    );
   }
 
-  getRecommendations(movieId: string): Observable<any> {
-    return this.Http.get(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=916d678d619ceb4866528692dac085ea`);
+  getRecommendations(movieId: string): Observable<{ results: RecommendationInterface[] }> {
+    return this.Http.get<{ results: RecommendationInterface[] }>(
+      `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=916d678d619ceb4866528692dac085ea`
+    );
   }
 
-  getSearchResults(movieId: string, movieName: string): Observable<any> {
-    return this.Http.get(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=916d678d619ceb4866528692dac085ea&query=${movieName}`)
+  getSearchResults(
+    movieId: string,
+    movieName: string
+  ): Observable<{ results: MovieInterface[] }> {
+    return this.Http.get<{ results: MovieInterface[] }>(
+      `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=916d678d619ceb4866528692dac085ea&query=${movieName}`
+    );
   }
 }
