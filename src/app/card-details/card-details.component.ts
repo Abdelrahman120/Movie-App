@@ -12,6 +12,7 @@ import { ActivatedRoute, Route } from '@angular/router';
 export class CardDetailsComponent {
   @Input() id: any='';
   movieDetails: any;
+  movieRecommendations: any;
   constructor(private ServiceRequestService:ServiceRequestService , private route:ActivatedRoute){}
 
 
@@ -22,6 +23,13 @@ export class CardDetailsComponent {
         this.movieDetails = res;
       }, error => {
         console.error("Error fetching movie details", error);
+      });
+    }
+    if (this.id) {
+      this.ServiceRequestService.getRecommendations(this.id).subscribe((res: any) => {
+        this.movieRecommendations = res.results;
+      }, error => {
+        console.error("Error fetching movie recommendations", error);
       });
     }
   }

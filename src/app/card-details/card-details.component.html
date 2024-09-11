@@ -2,9 +2,14 @@
   <div class="card">
     <!-- <h5 class="card-title">{{movieDetails}}ss</h5> -->
     <p>card-details works!</p>
-    <img [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.poster_path" alt="Movie ssssPoster">
+    <!-- <img [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.poster_path" alt="Movie ssssPoster"> -->
     <div class="card-body">
       <!-- <h5 class="card-title">{{movieDetails}}</h5> -->
+
     </div>
   </div>
 </div>
+@for (item of movieRecommendations; track id) {
+  <!-- <p class="card-text">{{ item.title }}</p> -->
+  <img [src]="'https://image.tmdb.org/t/p/w500/' + item.backdrop_path" alt="recommendation Poster">
+}
