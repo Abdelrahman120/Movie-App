@@ -21,10 +21,14 @@ export class SearchResultsComponent {
   searchResult: MovieInterface[] = [];
   title = '';
   ngOnInit(): void {
-    this.title = this.ActivatedRoute.snapshot.params['name'];
-    console.log(this.title);
-    this.ServiceRequestService.searchResult(this.title).subscribe((res) => {
-      this.searchResult = res.results;
+    this.ActivatedRoute.params.subscribe((params) => {
+      this.title = params['name'];
+
+      this.ServiceRequestService.searchResult(this.title).subscribe((res) => {
+        this.searchResult = res.results;
+      });
     });
   }
+
+
 }
