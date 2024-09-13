@@ -1,0 +1,33 @@
+.watchlist-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .icon {
+    font-size: 100px;
+    color: lightgray;
+  }
+  
+  p {
+    font-size: 18px;
+    color: black;
+  }
+  
+  .back-button {
+    background-color: #ffeb3b;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .back-button:hover {
+    background-color: #fdd835;
+  }

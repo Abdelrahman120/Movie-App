@@ -47,7 +47,13 @@
     <h1 class="card-title roboto-bold">Watch list</h1>
     <div class="row"> 
       @if (cartItems.length === 0) {
-        <h1 class="text-center fs-1">Cart is empty</h1>
+        <div class="im d-flex justify-content-center mt-5 ">
+
+          <img src="not_found.png"  alt="Description of Image">
+          
+      </div>  
+      <h1 class="text-center fs-1">No Movies in watch list</h1>
+      <button (click)="goBack()" class="back-button">Back to home</button>
     }
     @for(movie of cartItems ; track $index){
       <div class="col-md-6 shadow-lg">
@@ -62,13 +68,13 @@
             <div class="card-body ps-3 pt-3">
               <div class="head d-flex justify-content-between">
               <h1 class="card-title roboto-bold">{{movie.title}}</h1>
-              <p class="card-text text-warning"><fa-icon [icon]="faHeart" class="fs-3 heart"></fa-icon></p>
-              </div><span style="opacity: .5;">{{movie.release_date  }}</span>
+              <p class="card-text text-warning"><fa-icon (click)="removeFromCart(movie)" [icon]="faHeart" class="fs-3 heart"></fa-icon></p>
+              </div><span style="opacity: .5;">{{movie.release_date | date : "MMM d, y"  }}</span>
               <div class="card-text my-3">
                 
                 <span>
                   @for (star of [].constructor(5);track $index) {
-                  <fa-icon [icon]="faStar" [ngClass]="{
+                  <fa-icon  [icon]="faStar" [ngClass]="{
                       'fa-star text-dark mx-1 fs-5': $index < movie.vote_average,
                       'fa-star-o': $index >= movie.vote_average
                     }"></fa-icon>
