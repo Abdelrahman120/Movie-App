@@ -11,6 +11,7 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { DetailsInterface } from '../interfaces/details-interface';
 import { RecommendationsComponent } from '../recommendations/recommendations.component';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
+import { CartService } from '../services/cart.service';
 @Component({
   selector: 'app-card-details',
   standalone: true,
@@ -27,7 +28,7 @@ export class CardDetailsComponent {
   faHeart = faHeart;
   constructor(
     private ServiceRequestService: ServiceRequestService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -46,4 +47,8 @@ export class CardDetailsComponent {
   getFlooredRating(rating: number): number[] {
     return new Array(Math.floor(rating));
   }
+  addToCart(movie: any) {
+    this.cartService.addToCart(movie);
+  }
+
 }
