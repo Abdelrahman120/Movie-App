@@ -32,70 +32,80 @@
                 <td>
                   <button class="btn btn-outline-danger" (click)="removeFromCart(movie)" >×</button>
                 </td>
-                
+
                 <td>
                 </td>
               </tr>
         }
-        
+
       </tbody>
     </table>
- 
+
   </div>
    -->
-  <div class="container mt-4">
-    <h1 class="card-title roboto-bold">Watch list</h1>
-    <div class="row"> 
-      @if (cartItems.length === 0) {
-        <div class="im d-flex justify-content-center mt-5 ">
-
-          <img src="not_found.png"  alt="Description of Image">
-          
-      </div>  
-      <h1 class="text-center fs-1">No Movies in watch list</h1>
-      <button (click)="goBack()" class="back-button">Back to home</button>
-    }
-    @for(movie of cartItems ; track $index){
-      <div class="col-md-6 shadow-lg">
-        <div class="row g-0    flex-md-row mb-4  ">
-          
-          <div class="col-md-5 col-lg-4 ">
-            
-            <img class="img-fluid rounded-4" [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Movie Poster">
-      <!-- <img class="img-fluid rounded-4" src="image.png" alt="Movie Poster"> -->
-          </div>
-          <div class="col-md-7 col-lg-8">
-            <div class="card-body ps-3 pt-3">
-              <div class="head d-flex justify-content-between">
-              <h1 class="card-title roboto-bold">{{movie.title}}</h1>
-              <p class="card-text text-warning"><fa-icon (click)="removeFromCart(movie)" [icon]="faHeart" class="fs-3 heart"></fa-icon></p>
-              </div><span style="opacity: .5;">{{movie.release_date | date : "MMM d, y"  }}</span>
-              <div class="card-text my-3">
-                
-                <span>
-                  @for (star of [].constructor(5);track $index) {
-                  <fa-icon  [icon]="faStar" [ngClass]="{
-                      'fa-star text-dark mx-1 fs-5': $index < movie.vote_average,
-                      'fa-star-o': $index >= movie.vote_average
-                    }"></fa-icon>
-                  }
-                </span>
-                <span class="ms-3">{{movie.vote_count}}</span>
-              </div>
-              <p class="card-text fs-6  mt-4" style="color: black;">
-                {{movie.overview}}
-             
-              <br>
-              
-              <br>
-      
-             
-             
-            </div>
-          </div>
-      </div>    
-      </div>
-    }
+<div class="container mt-4">
+  <h1 class="card-title roboto-bold">Watch list</h1>
+  <div class="row">
+    @if (cartItems.length === 0) {
+    <div class="im d-flex justify-content-center mt-5">
+      <img src="broken-heart.png" alt="Description of Image" />
     </div>
+    <h1 class="text-center fs-1">No Movies in watch list</h1>
+    <button (click)="goBack()" class="back-button">Back to home</button>
+    } @for(movie of cartItems ; track $index){
+    <div
+      class="col-md-6 shadow rounded m-2 border border-1 p-3"
+      style="width: 40rem"
+    >
+      <div class="row g-0 flex-md-row mb-4">
+        <div class="col-md-5 col-lg-4">
+          <img
+            class="img-fluid rounded-4"
+            [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+            alt="Movie Poster"
+          />
+          <!-- <img class="img-fluid rounded-4" src="image.png" alt="Movie Poster"> -->
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <div class="card-body ps-3 pt-3">
+            <div class="head d-flex justify-content-between">
+              <h1 class="card-title roboto-bold fs-4">{{ movie.title }}</h1>
+              <p class="card-text text-warning">
+                <fa-icon
+                  (click)="removeFromCart(movie)"
+                  [icon]="faHeart"
+                  class="fs-3 heart"
+                ></fa-icon>
+              </p>
+            </div>
+            <span style="opacity: 0.5">{{
+              movie.release_date | date : "MMM d, y"
+            }}</span>
+            <div class="card-text my-3">
+              <span>
+                @for (star of [].constructor(5);track $index) {
+                <fa-icon
+                  [icon]="faStar"
+                  [ngClass]="{
+                    'fa-star text-dark mx-1 fs-5': $index < movie.vote_average,
+                    'fa-star-o': $index >= movie.vote_average
+                  }"
+                ></fa-icon>
+                }
+              </span>
+              <span class="ms-3">{{ movie.vote_count }}</span>
+            </div>
+            <p class="card-text fs-6 mt-4" style="color: black">
+              {{ movie.overview }}
 
-    
+              <br />
+
+              <br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
