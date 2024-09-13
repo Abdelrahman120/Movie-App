@@ -5,44 +5,44 @@
 
     </div>
     <div class="col-md-7 col-lg-8">
-      <div class="card-body ps-3 pt-3">
+      <div class="card-body ps-3 pt-3 d-flex flex-column justify-content-between">
         <div class="head d-flex justify-content-between">
         <h1 class="card-title roboto-bold">{{movieDetails.title}}</h1>
-        <p class="card-text text-warning"><fa-icon [icon]="faHeart" class="fs-3 heart"></fa-icon></p>
+        <p class="card-text text-warning"><fa-icon (click)="addToCart(movieDetails)" [icon]="faHeart" class="fs-3 heart"></fa-icon></p>
         </div><span style="opacity: .5;">{{movieDetails.release_date}}</span>
-        <div class="card-text my-3">
-          <!-- <span class="text-dark m-1" *ngFor="let _ of getFlooredRating(movieDetails.vote_average);">
+        <div class="card-text ">
+          <span class="text-dark m-1" *ngFor="let _ of getFlooredRating(movieDetails.vote_average);">
             <fa-icon [icon]="faSolidStar"></fa-icon>
-          </span> <span class="ms-3">{{movieDetails.vote_count}}</span> -->
+          </span> <span class="ms-3">{{movieDetails.vote_count}}</span>
           <span>
-            @for (star of [].constructor(5);track $index) {
+            <!-- @for (star of [].constructor(5);track $index) {
             <fa-icon [icon]="faStar" [ngClass]="{
                 'fa-star text-dark mx-1 fs-5': $index < movieDetails.vote_average,
                 'fa-star-o': $index >= movieDetails.vote_average
               }"></fa-icon>
-            }
+            } -->
           </span>
         </div>
-        <p class="card-text fs-6  mt-4" style="color: black;">
+        <p class="card-text fs-5 " style="color: black;">
           {{movieDetails.overview}} </p>
         <div class="type d-flex gap-4 mb-2">
           <span class="bg-warning px-3 py-1 rounded-4">Action</span>
           <span class="bg-warning px-3 py-1  rounded-4">Crime</span>
           <span class="bg-warning px-3 py-1  rounded-4">Thriller</span>
         </div>
-        <span class="card-text me-4"><b>Duration: </b>134 min </span>
-        <span class="card-text d-inline-block ms-3 my-2"><b>Language: </b>
+        <span class="card-text me-4"><b>Duration: </b>134 min <b class="ms-3">Language: </b>
           @if(movieDetails.original_language=='en'){
           english}
           @else{
           {{ movieDetails.original_language
-          }} }
-        </span>
+          }} }</span>
+        
         <br>
-        <img src="as.png" alt="" width="180" srcset="">
+        <img class=" " width="200" [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.backdrop_path" alt="Movie Poster">
+
         <br>
 
-        <a class="text-dark text-decoration-none d-inline-block mt-4" href="#">website <fa-icon [icon]="faLink"></fa-icon>
+        <a class="text-dark text-decoration-none d-inline-block " href="/">website <fa-icon [icon]="faLink"></fa-icon>
         </a>
       </div>
     </div>
