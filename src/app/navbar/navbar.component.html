@@ -7,17 +7,37 @@
     class="container-fluid d-flex justify-content-between align-content-center"
   >
     <a class="navbar-brand roboto-bold ms-4" href="#">Movie App</a>
-    <div
-      class="navbar-nav roboto-regular d-flex justify-content-between align-items-center"
-    >
-      <a class="nav-link me-2" aria-current="page" href="#">Home</a>
+    <div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div
+          class="navbar-nav roboto-regular d-flex justify-content-between align-items-center"
+        >
+          <a class="nav-link me-2" aria-current="page" href="#">Home</a>
 
-      <a routerLink="cart" routerLinkActive="text-dark" [routerLinkActiveOptions]="{exact: true}"
-      class="nav-link d-flex roboto-regular align-items-center me-3" href="#">
-      <fa-icon [icon]="faHeart" class="fs-3"></fa-icon>
-      <span class="ms-1">watchlist</span>
-      <span class="badge bg-danger ms-2 ">{{ cartLength }}</span> 
-   </a>
+          <a
+            routerLink="cart"
+            routerLinkActive="text-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-link d-flex roboto-regular align-items-center me-3"
+            href="#"
+          >
+            <fa-icon [icon]="faHeart" class="fs-3"></fa-icon>
+            <span class="ms-1">watchlist</span>
+            <span class="badge bg-danger ms-2">{{ cartLength }}</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

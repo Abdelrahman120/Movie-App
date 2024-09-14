@@ -9,7 +9,7 @@
   <h1 class="fs-1 my-5 fw-bold">Now Playing</h1>
   <div class="row">
     @for(Movie of movie;track $index){
-    <div class="col-2 my-1">
+    <div class="col-sm-12 col-md-6 col-lg-3 col-xl-2 my-2">
       <app-movie-card [movie]="Movie"></app-movie-card>
     </div>
     }
