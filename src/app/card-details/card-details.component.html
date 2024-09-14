@@ -1,19 +1,35 @@
-<div class="container my-5 ">
-  <div class="row g-0    flex-md-row mb-4  ">
-    <div class="col-md-5 col-lg-4 ">
-      <img class="img-fluid rounded-4" [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.poster_path" alt="Movie Poster">
-
+<div class="container my-5">
+  <div class="row g-0 flex-md-row mb-4">
+    <div class="col-md-5 col-lg-4">
+      <img
+        class="img-fluid rounded-4"
+        [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.poster_path"
+        alt="Movie Poster"
+      />
     </div>
     <div class="col-md-7 col-lg-8">
-      <div class="card-body ps-3 pt-3 d-flex flex-column justify-content-between">
+      <div
+        class="card-body ps-3 pt-3 d-flex flex-column justify-content-between"
+      >
         <div class="head d-flex justify-content-between">
-        <h1 class="card-title roboto-bold">{{movieDetails.title}}</h1>
-        <p class="card-text text-warning"><fa-icon (click)="addToCart(movieDetails)" [icon]="faHeart" class="fs-3 heart"></fa-icon></p>
-        </div><span style="opacity: .5;">{{movieDetails.release_date}}</span>
-        <div class="card-text ">
-          <span class="text-dark m-1" *ngFor="let _ of getFlooredRating(movieDetails.vote_average);">
+          <h1 class="card-title roboto-bold">{{ movieDetails.title }}</h1>
+          <p class="card-text text-warning">
+            <fa-icon
+              (click)="addToCart(movieDetails)"
+              [icon]="faHeart"
+              class="fs-3 heart"
+            ></fa-icon>
+          </p>
+        </div>
+        <span style="opacity: 0.5">{{ movieDetails.release_date }}</span>
+        <div class="card-text">
+          <span
+            class="text-dark m-1"
+            *ngFor="let _ of getFlooredRating(movieDetails.vote_average)"
+          >
             <fa-icon [icon]="faSolidStar"></fa-icon>
-          </span> <span class="ms-3">{{movieDetails.vote_count}}</span>
+          </span>
+          <span class="ms-3">{{ movieDetails.vote_count }}</span>
           <span>
             <!-- @for (star of [].constructor(5);track $index) {
             <fa-icon [icon]="faStar" [ngClass]="{
@@ -23,29 +39,38 @@
             } -->
           </span>
         </div>
-        <p class="card-text fs-5 " style="color: black;">
-          {{movieDetails.overview}} </p>
+        <p class="card-text fs-5" style="color: black">
+          {{ movieDetails.overview }}
+        </p>
         <div class="type d-flex gap-4 mb-2">
           <span class="bg-warning px-3 py-1 rounded-4">Action</span>
-          <span class="bg-warning px-3 py-1  rounded-4">Crime</span>
-          <span class="bg-warning px-3 py-1  rounded-4">Thriller</span>
+          <span class="bg-warning px-3 py-1 rounded-4">Crime</span>
+          <span class="bg-warning px-3 py-1 rounded-4">Thriller</span>
         </div>
-        <span class="card-text me-4"><b>Duration: </b>134 min <b class="ms-3">Language: </b>
-          @if(movieDetails.original_language=='en'){
-          english}
-          @else{
-          {{ movieDetails.original_language
-          }} }</span>
-        
-        <br>
-        <img class=" " width="200" [src]="'https://image.tmdb.org/t/p/w500/' + movieDetails.backdrop_path" alt="Movie Poster">
+        <span class="card-text me-4 roboto-regular"
+          ><b>Duration: </b>134 min <b class="ms-3">Language: </b>
+          @if(movieDetails.original_language=='En'){ english} @else{
+          {{ movieDetails.original_language }} }</span
+        >
 
-        <br>
+        <br />
+        <img
+          class=" "
+          width="200"
+          [src]="
+            'https://image.tmdb.org/t/p/w500/' + movieDetails.backdrop_path
+          "
+          alt="Movie Poster"
+        />
 
-        <a class="text-dark text-decoration-none d-inline-block " href="/">website <fa-icon [icon]="faLink"></fa-icon>
+        <br />
+
+        <a class="text-dark text-decoration-none d-inline-block" href="/"
+          >website <fa-icon [icon]="faLink"></fa-icon>
         </a>
       </div>
     </div>
   </div>
-  <hr>
+  <hr />
   <app-recommendations></app-recommendations>
+</div>
