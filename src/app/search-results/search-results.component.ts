@@ -16,7 +16,7 @@ export class SearchResultsComponent {
   constructor(
     private ServiceRequestService: ServiceRequestService,
     private ActivatedRoute: ActivatedRoute
-  ) {}
+  ) { }
   searchText!: string;
   searchResult: MovieInterface[] = [];
   title = '';

@@ -3,19 +3,20 @@
     <input
       type="text"
       name="search_input"
-      class="form-control rounded-3 p-3 me-4 border-0 mb-2"
+      class="form-control rounded-3 p-3 me-4 mb-2 border border-1"
       placeholder="Search and explore..."
       [(ngModel)]="text"
       value="{{ text }}"
     />
   </div>
   <div class="col-sm-12 col-lg-1 col-xl-1">
-    <input
+    <button
       type="submit"
-      value="Search"
-      class="btn fs-5 roboto-regular search px-4 w-100"
+      class="btn fs-3 roboto-regular search px-4"
       style="background-color: #ffe353"
       (click)="search()"
-    />
+    >
+      Search
+    </button>
   </div>
 </form>
