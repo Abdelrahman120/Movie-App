@@ -39,6 +39,7 @@
       />
       <label for="heart{{ movie.id }}" class=""
         ><fa-icon
+        [ngClass]="{'heart-red': isInWatchlist, 'heart-default': !isInWatchlist}"
           (click)="addToCart(movie)"
           [icon]="faHeart"
           class="fs-4 heart"
