@@ -6,7 +6,13 @@
   <div
     class="container-fluid d-flex justify-content-between align-content-center"
   >
-    <a class="navbar-brand roboto-bold ms-4" href="#">Movie App</a>
+    <a
+      class="navbar-brand roboto-bold ms-4"
+      routerLink="home"
+      routerLinkActive="text-dark"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Movie App</a
+    >
     <div>
       <button
         class="navbar-toggler"
@@ -23,7 +29,14 @@
         <div
           class="navbar-nav roboto-regular d-flex justify-content-between align-items-center"
         >
-          <a class="nav-link me-2" aria-current="page" href="#">Home</a>
+          <a
+            class="nav-link me-2"
+            aria-current="page"
+            routerLink="home"
+            routerLinkActive="text-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
 
           <a
             routerLink="cart"
