@@ -9,6 +9,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: MovieListComponent,
+    title: "Movies",
   },
   {
     path: 'movie-details/:id',

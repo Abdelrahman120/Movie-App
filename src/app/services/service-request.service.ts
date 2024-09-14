@@ -9,7 +9,7 @@ import { DetailsInterface } from '../interfaces/details-interface';
   providedIn: 'root',
 })
 export class ServiceRequestService {
-  constructor(private Http: HttpClient) {}
+  constructor(private Http: HttpClient) { }
 
   getAllMovies(): Observable<{ results: MovieInterface[] }> {
     return this.Http.get<{ results: MovieInterface[] }>(
@@ -31,9 +31,9 @@ export class ServiceRequestService {
     );
   }
 
-  searchResult(MovieName: string): Observable<{ results: MovieInterface[] }> {
+  searchResult(MovieName: string, pageNumber: string): Observable<{ results: MovieInterface[] }> {
     return this.Http.get<{ results: MovieInterface[] }>(
-      `https://api.themoviedb.org/3/search/movie?api_key=916d678d619ceb4866528692dac085ea&query=${MovieName}`
+      `https://api.themoviedb.org/3/search/movie?api_key=916d678d619ceb4866528692dac085ea&query=${MovieName}&page=${pageNumber}`
     );
   }
 

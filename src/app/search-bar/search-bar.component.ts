@@ -15,6 +15,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export class SearchBarComponent {
   text = '';
+  pageNumber = 1;
   title = {};
   faMagnifyingGlass = faMagnifyingGlass;
 
@@ -24,12 +25,13 @@ export class SearchBarComponent {
     this.router.navigate(['/search-result', this.text]);
   }
   ngOnInit(): void {
-    this.text = this.ActivatedRoute.snapshot.params['name'];
-    this.ServiceRequestService.searchResult(this.text).subscribe((res) => {
-      // console.log(res);
-      this.title = res.results;
-      console.log(this.title);
+    this.fetchResult();
+  }
 
+  fetchResult() {
+    this.text = this.ActivatedRoute.snapshot.params['name'];
+    this.ServiceRequestService.searchResult(this.text, `${this.pageNumber}`).subscribe((res) => {
+      this.title = res.results;
     });
   }
 }

@@ -20,15 +20,27 @@ export class SearchResultsComponent {
   searchText!: string;
   searchResult: MovieInterface[] = [];
   title = '';
+  pageNumber = 1;
   ngOnInit(): void {
+    this.filterMovies();
+  }
+  paginationPrev() {
+    if (this.pageNumber > 1) {
+      this.pageNumber -= 1;
+    }
+    this.filterMovies();
+  }
+
+  paginationNext() {
+    this.pageNumber += 1;
+    this.filterMovies();
+  }
+  filterMovies() {
     this.ActivatedRoute.params.subscribe((params) => {
       this.title = params['name'];
-
-      this.ServiceRequestService.searchResult(this.title).subscribe((res) => {
+      this.ServiceRequestService.searchResult(this.title, `${this.pageNumber}`).subscribe((res) => {
         this.searchResult = res.results;
       });
     });
   }
-
-
 }
