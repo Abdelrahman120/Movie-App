@@ -7,7 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: MovieListComponent,
     title: "Movies",
   },
