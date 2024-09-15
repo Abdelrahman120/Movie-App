@@ -12,7 +12,7 @@ import { CartService } from '../services/cart.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private cartService: CartService){}
+  constructor(private cartService: CartService) { }
   faHeart = faHeart;
 
   get cartLength(): number {
