@@ -26,6 +26,7 @@ export class CardDetailsComponent {
   faLink = faLink;
   faStar = faStar;
   faHeart = faHeart;
+  isFavorite: boolean = false;
   constructor(
     private ServiceRequestService: ServiceRequestService,
     private route: ActivatedRoute,private cartService: CartService
@@ -48,6 +49,7 @@ export class CardDetailsComponent {
     return new Array(Math.floor(rating));
   }
   addToCart(movie: any) {
+    this.isFavorite = !this.isFavorite;
     this.cartService.addToCart(movie);
   }
 

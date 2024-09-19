@@ -13,3 +13,12 @@
     } */
     
 }
+
+.text-warning {
+    color: yellow;
+  }
+  
+  .text-danger {
+    color: red;
+  }
+  

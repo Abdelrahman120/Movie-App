@@ -13,13 +13,14 @@
       >
         <div class="head d-flex justify-content-between">
           <h1 class="card-title roboto-bold">{{ movieDetails.title }}</h1>
-          <p class="card-text text-warning">
+          <p class="card-text" [ngClass]="{'text-warning': !isFavorite, 'text-danger': isFavorite}">
             <fa-icon
               (click)="addToCart(movieDetails)"
               [icon]="faHeart"
               class="fs-3 heart"
             ></fa-icon>
           </p>
+          
         </div>
         <span style="opacity: 0.5">{{ movieDetails.release_date }}</span>
         <div class="card-text">
